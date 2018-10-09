@@ -4,23 +4,36 @@ import styles from "./Urna.module.css";
 
 class Urna extends Component {
   state = {
-    firstNumber: "",
-    secondNumber: "",
-    finalNumber: ""
+    primeiroNumero: "",
+    segundoNumero: "",
+    finalNumero: ""
   };
 
   handleResultTemp = () => {
-    const final = this.state.firstNumber + this.state.secondNumber;
-    this.setState({ finalNumber: final });
+    const final = this.state.primeiroNumero + this.state.segundoNumero;
+    this.setState({ finalNumero: final });
+  };
+
+  handleNumber1 = query => {
+    this.setState({
+      primeiroNumero: query
+    });
+  };
+
+  handleNumber2 = query => {
+    this.setState({
+      segundoNumero: query
+    });
   };
 
   render() {
+    const { primeiroNumero, segundoNumero, finalNumero } = this.state;
     const { candidatos } = this.props;
 
     return (
       <div className={styles.Urna}>
         {candidatos.map(candidato => (
-          <div className={styles.UrnaTela}>
+          <div className={styles.UrnaTela} key={candidato.id}>
             <div className={styles.Entrada}>
               <p>SEU VOTO PARA:</p>
               <h2>PRESIDENTE</h2>
@@ -30,8 +43,9 @@ class Urna extends Component {
                   <input
                     type="text"
                     maxLength="1"
+                    value={primeiroNumero}
                     onChange={e =>
-                      this.setState({ firstNumber: e.target.value })
+                      this.setState({ primeiroNumero: e.target.value })
                     }
                   />
                 </div>
@@ -39,8 +53,9 @@ class Urna extends Component {
                   <input
                     type="text"
                     maxLength="1"
+                    value={segundoNumero}
                     onChange={e =>
-                      this.setState({ secondNumber: e.target.value })
+                      this.setState({ segundoNumero: e.target.value })
                     }
                   />
                 </div>
@@ -91,13 +106,23 @@ class Urna extends Component {
             <i>Desenvolvido por Bruno Carpinelli</i>
           </div>
           <div className={styles.Teclas}>
-            <button className={styles.Numeros}>1</button>
+            <button
+              className={styles.Numeros}
+              onClick={e => this.handleNumber1("1")}
+            >
+              1
+            </button>
             <button className={styles.Numeros}>2</button>
             <button className={styles.Numeros}>3</button>
             <button className={styles.Numeros}>4</button>
             <button className={styles.Numeros}>5</button>
             <button className={styles.Numeros}>6</button>
-            <button className={styles.Numeros}>7</button>
+            <button
+              className={styles.Numeros}
+              onClick={e => this.handleNumber2("7")}
+            >
+              7
+            </button>
             <button className={styles.Numeros}>8</button>
             <button className={styles.Numeros}>9</button>
             <button className={styles.Numeros}>0</button>
