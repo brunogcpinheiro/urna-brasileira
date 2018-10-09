@@ -76,17 +76,100 @@
 .UrnaTela .Informacoes .Candidato img:first-child {
   width: 250px;
   height: 250px;
+  border: 2px solid #181818;
 }
 
 .UrnaTela .Informacoes .Candidato img:last-child {
-  width: 200px;
-  height: 180px;
+  width: 150px;
+  height: 150px;
+  border: 2px solid #181818;
 }
 
-.UrnaTeclado {
+.Urna .UrnaTeclado {
   background-color: #2f2f2f;
   width: 35%;
   height: 80%;
   margin: 50px;
   border: 2px solid #cdcdcd;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.Urna .UrnaTeclado .Acoes {
+  margin: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.Urna .UrnaTeclado .Acoes .Confirma {
+  padding: 5px 10px;
+  height: 50px;
+  font-size: 0.9em;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px green;
+}
+
+.Urna .UrnaTeclado .Acoes .Confirma:hover {
+  background-color: #3e8e41;
+}
+
+.Urna .UrnaTeclado .Acoes .Confirma:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px green;
+  transform: translateY(4px);
+}
+
+.Urna .UrnaTeclado .Acoes .Corrige {
+  padding: 5px 10px;
+  height: 50px;
+  font-size: 0.9em;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: orange;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px rgb(212, 140, 5);
+}
+
+.Urna .UrnaTeclado .Acoes .Corrige:hover {
+  background-color: orange;
+}
+
+.Urna .UrnaTeclado .Acoes .Corrige:active {
+  background-color: orange;
+  box-shadow: 0 5px rgb(212, 140, 5);
+  transform: translateY(4px);
+}
+
+.Urna .UrnaTeclado .Acoes .Branco {
+  padding: 5px 10px;
+  height: 50px;
+  font-size: 0.9em;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #000;
+  background-color: white;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px rgb(212, 212, 212);
+}
+
+.Urna .UrnaTeclado .Acoes .Branco:hover {
+  background-color: white;
+}
+
+.Urna .UrnaTeclado .Acoes .Branco:active {
+  background-color: white;
+  box-shadow: 0 5px rgb(212, 212, 212);
+  transform: translateY(4px);
 }

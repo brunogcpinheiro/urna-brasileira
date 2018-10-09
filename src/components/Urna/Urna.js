@@ -1,12 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import styles from './Urna.module.css';
+import styles from "./Urna.module.css";
 
 class Urna extends Component {
-  state = {};
+  state = {
+    firstNumber: "",
+    secondNumber: "",
+    finalNumber: ""
+  };
+
+  handleResultTemp = () => {
+    const final = this.state.firstNumber + this.state.secondNumber;
+    this.setState({ finalNumber: final });
+  };
 
   render() {
     const { candidatos } = this.props;
+
     return (
       <div className={styles.Urna}>
         {candidatos.map(candidato => (
@@ -14,15 +24,27 @@ class Urna extends Component {
             <div className={styles.Entrada}>
               <p>SEU VOTO PARA:</p>
               <h2>PRESIDENTE</h2>
-              <div className={styles.Digitos}>
+              <form className={styles.Digitos}>
                 <p>Número:</p>
                 <div className={styles.Digito}>
-                  <input type="text" maxLength="1" />
+                  <input
+                    type="text"
+                    maxLength="1"
+                    onChange={e =>
+                      this.setState({ firstNumber: e.target.value })
+                    }
+                  />
                 </div>
                 <div className={styles.Digito}>
-                  <input type="text" maxLength="1" />
+                  <input
+                    type="text"
+                    maxLength="1"
+                    onChange={e =>
+                      this.setState({ secondNumber: e.target.value })
+                    }
+                  />
                 </div>
-              </div>
+              </form>
               <div className={styles.Dados}>
                 <div>
                   <p>
@@ -51,17 +73,39 @@ class Urna extends Component {
             </div>
             <div className={styles.Informacoes}>
               <div className={styles.Candidato}>
-                <img alt="foto" src={candidato.imagem} />
-                <img alt="foto" src={candidato.imagemVice} />
+                <img alt={candidato.nome} src={candidato.imagem} />
+                <img alt={candidato.vice} src={candidato.imagemVice} />
               </div>
             </div>
           </div>
         ))}
         <div className={styles.UrnaTeclado}>
           <div
-            style={{ background: '#f5f5f5', width: '100%', height: '80px' }}
+            style={{ background: "#f5f5f5", width: "100%", height: "80px" }}
           />
-          <div className={styles.Teclas} />
+          <div className={styles.Teclas}>
+            <button onClick={this.handleResultTemp}>0</button>
+            <button onClick={this.handleResultTemp}>1</button>
+            <button onClick={this.handleResultTemp}>2</button>
+            <button onClick={this.handleResultTemp}>3</button>
+            <button onClick={this.handleResultTemp}>4</button>
+            <button onClick={this.handleResultTemp}>5</button>
+            <button onClick={this.handleResultTemp}>6</button>
+            <button onClick={this.handleResultTemp}>7</button>
+            <button onClick={this.handleResultTemp}>8</button>
+            <button onClick={this.handleResultTemp}>9</button>
+          </div>
+          <div className={styles.Acoes}>
+            <button onClick={this.handleResultTemp} className={styles.Branco}>
+              BRANCO
+            </button>
+            <button onClick={this.handleResultTemp} className={styles.Corrige}>
+              CORRIGE
+            </button>
+            <button onClick={this.handleResultTemp} className={styles.Confirma}>
+              CONFIRMA
+            </button>
+          </div>
         </div>
       </div>
     );
