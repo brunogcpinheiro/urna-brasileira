@@ -81,8 +81,15 @@ class Urna extends Component {
         ))}
         <div className={styles.UrnaTeclado}>
           <div
-            style={{ background: "#f5f5f5", width: "100%", height: "80px" }}
-          />
+            style={{
+              background: "#f5f5f5",
+              width: "100%",
+              height: "80px"
+            }}
+          >
+            <br />
+            <i>Desenvolvido por Bruno Carpinelli</i>
+          </div>
           <div className={styles.Teclas}>
             <button className={styles.Numeros}>1</button>
             <button className={styles.Numeros}>2</button>

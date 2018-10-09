@@ -119,6 +119,10 @@
   margin: 10px;
 }
 
+.Urna .UrnaTeclado .Teclas .Numeros::after {
+  background: #fff;
+}
+
 .Urna .UrnaTeclado .Teclas .Numeros:hover {
   background-color: #313131;
 }
