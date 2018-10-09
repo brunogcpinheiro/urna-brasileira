@@ -84,16 +84,16 @@ class Urna extends Component {
             style={{ background: "#f5f5f5", width: "100%", height: "80px" }}
           />
           <div className={styles.Teclas}>
-            <button onClick={this.handleResultTemp}>0</button>
-            <button onClick={this.handleResultTemp}>1</button>
-            <button onClick={this.handleResultTemp}>2</button>
-            <button onClick={this.handleResultTemp}>3</button>
-            <button onClick={this.handleResultTemp}>4</button>
-            <button onClick={this.handleResultTemp}>5</button>
-            <button onClick={this.handleResultTemp}>6</button>
-            <button onClick={this.handleResultTemp}>7</button>
-            <button onClick={this.handleResultTemp}>8</button>
-            <button onClick={this.handleResultTemp}>9</button>
+            <button className={styles.Numeros}>1</button>
+            <button className={styles.Numeros}>2</button>
+            <button className={styles.Numeros}>3</button>
+            <button className={styles.Numeros}>4</button>
+            <button className={styles.Numeros}>5</button>
+            <button className={styles.Numeros}>6</button>
+            <button className={styles.Numeros}>7</button>
+            <button className={styles.Numeros}>8</button>
+            <button className={styles.Numeros}>9</button>
+            <button className={styles.Numeros}>0</button>
           </div>
           <div className={styles.Acoes}>
             <button onClick={this.handleResultTemp} className={styles.Branco}>
