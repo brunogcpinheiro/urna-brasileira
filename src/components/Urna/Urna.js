@@ -46,9 +46,7 @@ class Urna extends Component {
     const { candidatos, fake } = this.props;
 
     const filtrado = candidatos.filter(c => c.id === finalNumero);
-    const mostrarCandidatos = filtrado.length
-      ? candidatos.filter(c => c.id === finalNumero)
-      : fake;
+    const mostrarCandidatos = filtrado.length ? filtrado : fake;
 
     return (
       <div className={styles.Urna}>
