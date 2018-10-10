@@ -1,6 +1,6 @@
 .Urna {
   background-color: #d7d3c7;
-  width: 90%;
+  max-width: 1280px;
   height: 60vh;
   margin: 70px 50px 50px 50px;
   border: 3px solid #999;
