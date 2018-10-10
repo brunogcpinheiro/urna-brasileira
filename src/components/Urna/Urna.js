@@ -11,7 +11,25 @@ class Urna extends Component {
 
   handleResultTemp = () => {
     let final = this.state.primeiroNumero + this.state.segundoNumero;
-    if (final) {
+    if (
+      (final && final === "12") ||
+      final === "13" ||
+      final === "15" ||
+      final === "16" ||
+      final === "17" ||
+      final === "18" ||
+      final === "19" ||
+      final === "27" ||
+      final === "30" ||
+      final === "45" ||
+      final === "50" ||
+      final === "51" ||
+      final === "54"
+    ) {
+      this.setState({ finalNumero: final });
+      console.log(final);
+    } else {
+      final = "nulo";
       this.setState({ finalNumero: final });
       console.log(final);
     }
@@ -43,7 +61,7 @@ class Urna extends Component {
 
   render() {
     const { primeiroNumero, segundoNumero, finalNumero } = this.state;
-    const { candidatos, fake } = this.props;
+    const { candidatos, fake, nulo } = this.props;
 
     const filtrado = candidatos.filter(c => c.id === finalNumero);
     const mostrarCandidatos = filtrado.length ? filtrado : fake;
