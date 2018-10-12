@@ -1,0 +1,8 @@
+.Contador {
+  display: flex;
+  flex-direction: column;
+}
+
+.Contador ul li {
+  margin: 15px;
+}

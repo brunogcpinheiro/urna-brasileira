@@ -8,25 +8,21 @@ class Urna extends Component {
     primeiroNumero: "",
     segundoNumero: "",
     finalNumero: "",
-    contador: [
-      {
-        Ciro: 0,
-        Haddad: 0,
-        Meirelles: 0,
-        Vera: 0,
-        Bolsonaro: 1,
-        Marina: 0,
-        Alvaro: 0,
-        Eymael: 0,
-        Amoedo: 0,
-        Alckmin: 0,
-        Boulos: 0,
-        Daciolo: 0,
-        Goulart: 0,
-        Nulo: 0,
-        Branco: 100
-      }
-    ]
+    ciro: 0,
+    haddad: 0,
+    meirelles: 0,
+    vera: 0,
+    bolsonaro: 0,
+    marina: 0,
+    alvaro: 0,
+    eymael: 0,
+    amoedo: 0,
+    alckmin: 0,
+    boulos: 0,
+    daciolo: 0,
+    goulart: 0,
+    nulo: 0,
+    branco: 0
   };
 
   handleNumber = e => {
@@ -39,18 +35,19 @@ class Urna extends Component {
         segundoNumero: e.target.name
       });
     }
-    this.handleFinish();
-  };
 
-  handleFinish = () => {
     this.setState(state => ({
       finalNumero: state.primeiroNumero + state.segundoNumero
     }));
+
+    this.handleResult();
   };
 
-  handleResultTemp = final => {
+  handleResult = () => {
+    let final = this.state.finalNumero;
+
     if (
-      (final && final === "12") ||
+      (final.length > 0 && final === "12") ||
       final === "13" ||
       final === "15" ||
       final === "16" ||
@@ -64,7 +61,7 @@ class Urna extends Component {
       final === "51" ||
       final === "54"
     ) {
-      this.setState({ finalNumero: final });
+      this.setState(state => ({ finalNumero: final }));
     }
   };
 
@@ -77,15 +74,117 @@ class Urna extends Component {
   };
 
   handleVotoBranco = () => {
-    alert("clicou branco");
+    this.setState(state => ({
+      branco: state.branco + 1
+    }));
   };
 
   handleFinishResult = () => {
-    alert("clicou confirma");
+    const final = this.state.finalNumero;
+
+    switch (final) {
+      case "12":
+        this.setState(state => ({
+          ciro: state.ciro + 1
+        }));
+        break;
+      case "13":
+        this.setState(state => ({
+          haddad: state.haddad + 1
+        }));
+        break;
+      case "15":
+        this.setState(state => ({
+          meirelles: state.meirelles + 1
+        }));
+        break;
+      case "16":
+        this.setState(state => ({
+          vera: state.vera + 1
+        }));
+        break;
+      case "17":
+        this.setState(state => ({
+          bolsonaro: state.bolsonaro + 1
+        }));
+        break;
+      case "18":
+        this.setState(state => ({
+          marina: state.marina + 1
+        }));
+        break;
+      case "19":
+        this.setState(state => ({
+          alvaro: state.alvaro + 1
+        }));
+        break;
+      case "27":
+        this.setState(state => ({
+          eymael: state.eymael + 1
+        }));
+        break;
+      case "30":
+        this.setState(state => ({
+          amoedo: state.amoedo + 1
+        }));
+        break;
+      case "45":
+        this.setState(state => ({
+          alckmin: state.alckmin + 1
+        }));
+        break;
+      case "50":
+        this.setState(state => ({
+          boulos: state.boulos + 1
+        }));
+        break;
+      case "51":
+        this.setState(state => ({
+          daciolo: state.daciolo + 1
+        }));
+        break;
+      case "54":
+        this.setState(state => ({
+          goulart: state.goulart + 1
+        }));
+        break;
+      case "nulo":
+        this.setState(state => ({
+          nulo: state.nulo + 1
+        }));
+        break;
+      default:
+        break;
+    }
+
+    this.setState({
+      primeiroNumero: "",
+      segundoNumero: "",
+      finalNumero: ""
+    });
   };
 
   render() {
-    const { primeiroNumero, segundoNumero, finalNumero, contador } = this.state;
+    const {
+      primeiroNumero,
+      segundoNumero,
+      finalNumero,
+      ciro,
+      haddad,
+      meirelles,
+      vera,
+      bolsonaro,
+      marina,
+      alvaro,
+      eymael,
+      amoedo,
+      alckmin,
+      boulos,
+      daciolo,
+      goulart,
+      nulo,
+      branco
+    } = this.state;
     const { candidatos, fake } = this.props;
 
     const filtrado = candidatos.filter(c => c.id === finalNumero);
@@ -253,9 +352,23 @@ class Urna extends Component {
             </div>
           </div>
         </div>
-        {contador.map(voto => (
-          <Contador candidato={Object.keys(voto)} voto={voto} />
-        ))}
+        <Contador
+          ciro={ciro}
+          haddad={haddad}
+          meirelles={meirelles}
+          vera={vera}
+          bolsonaro={bolsonaro}
+          marina={marina}
+          alvaro={alvaro}
+          eymael={eymael}
+          amoedo={amoedo}
+          alckmin={alckmin}
+          boulos={boulos}
+          daciolo={daciolo}
+          goulart={goulart}
+          nulo={nulo}
+          branco={branco}
+        />
       </Fragment>
     );
   }

@@ -164,11 +164,11 @@ class App extends Component {
     const { candidatos, fake, nulo } = this.state;
 
     return (
-      <div className={styles.App}>
-        <h1>
-          Urna Brasileira para <span>Leigos</span>
-        </h1>
-        <Urna candidatos={candidatos} fake={fake} nulo={nulo} />
+      <div>
+        <h1 style={{ textAlign: "center" }}>Urna Brasileira para Leigos</h1>
+        <div className={styles.App}>
+          <Urna candidatos={candidatos} fake={fake} nulo={nulo} />
+        </div>
       </div>
     );
   }

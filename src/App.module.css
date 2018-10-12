@@ -1,11 +1,3 @@
 .App {
-  text-align: center;
-  color: green;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.App span {
-  color: yellow;
 }
