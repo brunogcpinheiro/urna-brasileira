@@ -47,7 +47,7 @@ class Urna extends Component {
     let final = this.state.finalNumero;
 
     if (
-      (final.length > 0 && final === "12") ||
+      (final.length !== 0 && final === "12") ||
       final === "13" ||
       final === "15" ||
       final === "16" ||
